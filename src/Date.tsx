@@ -1,3 +1,4 @@
 export const Date = () => {
-  return <p>Date</p>;
+  var date = "12/15/2021";
+  return <p>{date}</p>;
 };
