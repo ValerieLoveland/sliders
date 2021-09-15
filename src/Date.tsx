@@ -1,4 +1,6 @@
-export const Date = () => {
-  var date = "12/15/2021";
-  return <p>{date}</p>;
+import { Form } from "./Form";
+
+export const DateOfEvent: React.FC = (props: any) => {
+  const date = props.eventDate;
+  return <Form {...date} />;
 };
