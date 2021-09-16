@@ -1,6 +1,5 @@
 import React from "react";
 import "./App.css";
-import { DateOfEvent } from "./Date";
 import Form from "./Form";
 
 function App() {
@@ -8,8 +7,8 @@ function App() {
     <div className="App">
       <header className="App-header">
         <p>Event</p>
-        {/* <Form /> */}
-        <DateOfEvent />
+        <Form />
+
         <p>Years Months Weeks Days Hours</p>
         <p>Slider</p>
       </header>
