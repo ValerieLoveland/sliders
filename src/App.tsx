@@ -1,11 +1,13 @@
 import React from "react";
 import "./App.css";
+import EventItem from "./EventItem";
 import Form from "./Form";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <EventItem />
         <p>Event</p>
         <Form />
 
