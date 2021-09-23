@@ -7,8 +7,9 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <EventItem />
         <p>Event</p>
+        <EventItem />
+        <p>New Event</p>
         <Form />
 
         <p>Years Months Weeks Days Hours</p>
