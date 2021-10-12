@@ -36,7 +36,11 @@ export const Form = () => {
   return (
     <>
       <div>
-        <EventItem name={eventName} />
+        <EventItem
+          name={eventName}
+          differenceInDays={differenceInDays}
+          eventDate={eventDate}
+        />
       </div>
       <Card>
         <form>

@@ -8,9 +8,9 @@ export const EventItem = (props: any) => {
       hi
       <Card>
         <div>
-          {props.name}
-          {/* {props.eventDate}
-          {props.differenceInDays} */}
+          <div>{props.name}</div>
+          <div>{props.eventDate}</div>
+          <div>{props.differenceInDays}</div>
         </div>
       </Card>
     </div>
