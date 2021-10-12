@@ -27,7 +27,7 @@ export const Form = () => {
       date: eventDate,
       days: differenceInDays,
     };
-    showEvent(eventName, eventDate, differenceInDays);
+    <ShowEvent differenceInDays={differenceInDays} />;
 
     //props.onSaveEventData(eventData);
   };
@@ -35,6 +35,9 @@ export const Form = () => {
   console.log("time:" + differenceInTime);
   return (
     <>
+      <div>
+        <EventItem name={eventName} />
+      </div>
       <Card>
         <form>
           <label>
@@ -60,27 +63,21 @@ export const Form = () => {
           </p>
           <input type="submit" value="submit" onSubmit={submitHandler} />
         </form>
-        <div>{eventName}</div>
-        <div>{eventDate}</div>
-        <div>{currentDateString}</div>
+        <ShowEvent />
         {/* <div>{dateConverter}</div> */}
-        <div> seconds: {differenceInTime}</div>
-        <div>days: {differenceInDays}</div>
+        {/* <div> seconds: {differenceInTime}</div>
+        <div>days: {differenceInDays}</div> */}
       </Card>
     </>
   );
 };
 
-export const showEvent = (
-  eventName: string,
-  eventDate: string,
-  differenceInDays: number
-) => {
+export const ShowEvent = (props: any) => {
   return (
     <div>
-      <div>{eventName}</div>
-      <div>{eventDate}</div>
-      <div>{differenceInDays}</div>
+      {/* <div>{eventName}</div>
+      <div>{eventDate}</div> */}
+      <div>{props.differenceInDays}</div>
     </div>
   );
 };

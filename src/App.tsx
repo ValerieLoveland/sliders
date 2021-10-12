@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <p>Event</p>
-        <EventItem />
+        {/* <EventItem eventName={Form.eventName} /> */}
         <p>New Event</p>
         <Form />
 

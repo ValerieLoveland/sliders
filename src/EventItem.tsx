@@ -1,12 +1,17 @@
 import React from "react";
 import { Card } from "./Card";
-import { Form } from "./Form";
+import eventName from "./Form";
 
 export const EventItem = (props: any) => {
   return (
     <div>
+      hi
       <Card>
-        <Form {...props.eventName} />
+        <div>
+          {props.name}
+          {/* {props.eventDate}
+          {props.differenceInDays} */}
+        </div>
       </Card>
     </div>
   );
