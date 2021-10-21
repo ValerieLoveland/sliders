@@ -4,14 +4,12 @@ import { EventItem } from "./EventItem";
 
 export const Form = () => {
   const [eventDate, setEventDate] = useState("");
+  const [DateInputText, setDateInputText] = useState("");
+
+  const [NameInputText, setNameInputText] = useState("");
   const [eventName, setEventName] = useState("");
-  //const [wholeEvent, setWholeEvent] = useState();
 
   const eventDateDate = new Date(eventDate);
-
-  // const dateChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-
-  // };
 
   const currentDateDate = new Date();
   const currentDateString = currentDateDate.toLocaleDateString();
@@ -19,20 +17,34 @@ export const Form = () => {
   let day = 24 * 60 * 60 * 1000;
   var differenceInDays = Math.ceil(differenceInTime / day);
 
-  const submitHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    event.preventDefault();
-    setEventDate(event.target.value);
-    const eventData = {
-      eventName: eventName,
-      date: eventDate,
-      days: differenceInDays,
-    };
-    <ShowEvent differenceInDays={differenceInDays} />;
-
-    //props.onSaveEventData(eventData);
+  const handleNameChange = (event: any) => {
+    const newName = event?.target.value;
+    setNameInputText(newName);
   };
 
-  console.log("time:" + differenceInTime);
+  const handleDateChange = (event: any) => {
+    const newDate = event?.target.value;
+    setDateInputText(newDate);
+  };
+
+  const addItem = (event: any) => {
+    event.preventDefault();
+    setEventDate(event.target.value);
+    setEventName(event.target.value);
+    // const eventData = {
+    //   eventName: eventName,
+    //   date: eventDate,
+    //   days: differenceInDays,
+  };
+  <ShowEvent differenceInDays={differenceInDays} />;
+  // return (
+  //   <>
+  //     <div>{eventName}</div>
+  //     <div>{eventDate}</div>
+  //     <div>{eventName}</div>
+  //   </>
+  // );
+
   return (
     <>
       <div>
@@ -48,9 +60,8 @@ export const Form = () => {
             Event Date:
             <input
               type="text"
-              onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                setEventDate(event.target.value);
-              }}
+              onChange={handleDateChange}
+              value={DateInputText}
             />
           </label>
 
@@ -58,19 +69,17 @@ export const Form = () => {
             <label>
               Event Name:
               <input
+                onChange={handleNameChange}
                 type="text"
-                onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                  setEventName(event.target.value);
-                }}
+                value={NameInputText}
               />
             </label>
           </p>
-          <input type="submit" value="submit" onSubmit={submitHandler} />
+          <button onClick={addItem}>
+            <span>Add Event</span>
+          </button>
         </form>
         <ShowEvent />
-        {/* <div>{dateConverter}</div> */}
-        {/* <div> seconds: {differenceInTime}</div>
-        <div>days: {differenceInDays}</div> */}
       </Card>
     </>
   );
@@ -79,8 +88,6 @@ export const Form = () => {
 export const ShowEvent = (props: any) => {
   return (
     <div>
-      {/* <div>{eventName}</div>
-      <div>{eventDate}</div> */}
       <div>{props.differenceInDays}</div>
     </div>
   );
